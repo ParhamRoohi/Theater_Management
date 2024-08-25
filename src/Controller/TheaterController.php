@@ -30,25 +30,31 @@ class TheaterController extends AbstractController
         ]);
     }
 
-    #[Route('/theater/new', name: 'theater_new')]
-    #[IsGranted('ROLE_ADMIN')]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $theater = new Theater();
-        $form = $this->createForm(TheaterType::class, $theater);
-        $form->handleRequest($request);
+    #[Route('/theater/new', name: 'theater_new')] 
+    #[IsGranted('ROLE_ADMIN')] 
+    public function new(Request $request, EntityManagerInterface $entityManager): Response 
+    { 
+        $theater = new Theater(); 
+        $form = $this->createForm(TheaterType::class, $theater); 
+        $form->handleRequest($request); 
+ 
+        if ($form->isSubmitted() && $form->isValid()) { 
+            $entityManager->persist($theater); 
+            $entityManager->flush(); 
+ 
+            return $this->redirectToRoute('theater_show', ['id' => $theater->getId()]); 
+        } 
+ 
+        if ($form->isSubmitted() && !$form->isValid()) { 
+            $this->addFlash('error', 'The form contains errors. Please correct them before submitting.'); 
+        } 
+ 
+        return $this->render('theater/new.html.twig', [ 
+            'form' => $form->createView(), 
+        ]); 
+    } 
+ 
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($theater);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('theater_show', ['id' => $theater->getId()]);
-        }
-
-        return $this->render('theater/new.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
   
 #[Route('/theater/{id}/comments', name: 'theater_comments')]
 #[IsGranted('ROLE_ADMIN')]
@@ -68,22 +74,44 @@ public function commentView(int $id, EntityManagerInterface $entityManager, Revi
     ]);
 }
 
-    #[Route('/theater/{id}/edit', name: 'theater_edit')]
-    public function edit(Request $request, Theater $theater, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(TheaterType::class, $theater);
-        $form->handleRequest($request);
+    // #[Route('/theater/{id}/edit', name: 'theater_edit')]
+    // public function edit(Request $request, Theater $theater, EntityManagerInterface $entityManager): Response
+    // {
+    //     $form = $this->createForm(TheaterType::class, $theater);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $entityManager->flush();
 
-            return $this->redirectToRoute('theater_index', ['id' => $theater->getId()]);
-        }
+    //         return $this->redirectToRoute('theater_index', ['id' => $theater->getId()]);
+    //     }
 
-        return $this->render('theater/edit.html.twig', [
-            'form' => $form->createView(),
-        ]);
-    }
+    //     return $this->render('theater/edit.html.twig', [
+    //         'form' => $form->createView(),
+    //     ]);
+    // }
+    #[Route('/theater/{id}/edit', name: 'theater_edit')] 
+    public function edit(Request $request, Theater $theater, EntityManagerInterface $entityManager): Response 
+    { 
+        $form = $this->createForm(TheaterType::class, $theater); 
+        $form->handleRequest($request); 
+ 
+        if ($form->isSubmitted() && $form->isValid()) { 
+            $entityManager->flush(); 
+ 
+            return $this->redirectToRoute('theater_index', ['id' => $theater->getId()]); 
+        } 
+ 
+        if ($form->isSubmitted() && !$form->isValid()) { 
+            $this->addFlash('error', 'The form contains errors. Please correct them before submitting.'); 
+        } 
+ 
+        return $this->render('theater/edit.html.twig', [ 
+            'form' => $form->createView(), 
+        ]); 
+    } 
+
+
 
     #[Route('/theater/{id}', name: 'theater_show')] 
     public function show(Theater $theater, EntityManagerInterface $entityManager): Response 
