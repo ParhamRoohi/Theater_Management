@@ -1,0 +1,93 @@
+{# templates/theater/comment.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Comments for {{ theater.name }}{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .comments-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .comments-container h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .comments-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comments-list li {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+                 .btn-back{
+            background-color: #5bc0de;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 4px;
+        }
+
+         .btn-back:hover {
+            background-color: #31b0d5;
+        }
+
+        .comments-list li:last-child {
+            border-bottom: none;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .comment-content {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .comment-date {
+            font-size: 0.875rem;
+            color: #999;
+        }
+
+        .no-comments {
+            text-align: center;
+            font-size: 1.125rem;
+            color: #777;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="comments-container">
+        <h1>{{'comments_for'|trans}} {{ theater.name }}</h1>
+
+        {% if comments is not empty %}
+            <ul class="comments-list">
+                {% for comment in comments %}
+                    <li>
+                       <p class="comment-content">{{'comment'|trans}}:{{ comment.comment }}</p>
+                       <p class="comment-content"> {{'rate'|trans}}:{{ comment.rate }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-comments">{{'no_comments'|trans}}</p>
+        {% endif %}
+         <button type="button" class="btn btn-back" onclick="window.location.href='{{ path('theater_index') }}'">{{ 'back_to_home'|trans }}</button>
+    </div>
+{% endblock %}

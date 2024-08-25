@@ -1,0 +1,49 @@
+theater_list: "Theater List" 
+create_new_theater: "Create new theater" 
+edit_theater: "Edit Theater" 
+delete_theater: "Delete Theater" 
+show_more: "Show More" 
+add_comment: "Add Comment" 
+save_changes: "Save Changes" 
+login: "Login" 
+register: "Register" 
+logout: "Logout" 
+edit_profile: "Edit Profile" 
+theaters: "Theaters" 
+theater_details: "Theater Details" 
+number_of_tickets: "Number of tickets" 
+tickets_bought_successfully: "Tickets bought successfully." 
+invalid_csrf_token: "Invalid CSRF token."
+details: "Theater Details"
+location: "Location"
+capacity: "Capacity"
+description: "Description"
+delete_confirm: "Are you sure you want to delete this theater?"
+current_password: 'Current Password'
+new_password: 'New Password'
+title: 'Edit Profile'
+header: 'Edit Profile'
+logged_in_as: 'You are Login As'
+theater_name: 'Theater Name'
+submit: 'Submit'
+leave_review_for: 'Leave a Review for'
+form.rating: 'Rating'
+form.comment: 'Comment'
+form.name: 'Theater Name'
+form.description: 'Description'
+form.location: "Location "
+form.capacity: 'Capacity'
+form.date: 'Date'
+form.new_email:  "New Email"
+form.current_password: 'Current Password  '
+form.new_password: 'New Password'
+please_sign_in: ' Please sign in '
+password: 'Password '
+form.ticket_price: 'price'
+this_theater_is_full: "This theater is full"
+show_ticket: 'Show Ticket'
+buy_ticket: 'Buy Ticket'
+back_to_home: 'Back to Home'
+comments_for: 'Comments for'
+show_comment: 'Show Comment'
+no_comments: 'No comments found for this theater'

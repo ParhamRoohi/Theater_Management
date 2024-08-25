@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'buy_ticket'|trans }}{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+         .btn-back{
+            background-color: #5bc0de;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 4px;
+        }
+
+         .btn-back:hover {
+            background-color: #31b0d5;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn-primary {
+            background-color: #5bc0de;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background-color: #31b0d5;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'buy_ticket'|trans }} {{ theater.name }}</h1>
+        
+        <form method="post">
+            <div class="form-group">
+                <label for="quantity">{{ 'number_of_tickets'|trans }}</label>
+                <input type="number" id="quantity" name="quantity" class="form-control" min="1" max="10" value="1" required>
+            </div>
+            
+            <button class="btn btn-primary" type="submit">{{ 'buy_ticket'|trans }}</button>
+        </form>
+         <button type="button" class="btn btn-back" onclick="window.location.href='{{ path('theater_index') }}'">{{ 'back_to_home'|trans }}</button>
+
+    </div>
+{% endblock %}

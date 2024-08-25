@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'edit_theater'|trans }}{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+         .btn-back{
+            background-color: #5bc0de;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 4px;
+        }
+
+         .btn-back:hover {
+            background-color: #31b0d5;
+        }
+
+        .btn-primary {
+            background-color: #5bc0de;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            align-self: flex-start;
+        }
+
+        .btn-primary:hover {
+            background-color: #31b0d5;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'edit_theater'|trans }}</h1>      
+        {{ form_start(form, {'attr': {'class': 'form-vertical'}}) }}
+            {% for child in form %}
+                <div class="form-group">
+                    {{ form_widget(child, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            {% endfor %}
+            <button class="btn btn-primary">{{ 'save_changes'|trans }}</button>
+        {{ form_end(form) }}
+         <button type="button" class="btn btn-back" onclick="window.location.href='{{ path('theater_index') }}'">{{ 'back_to_home'|trans }}</button>
+    </div>
+{% endblock %}

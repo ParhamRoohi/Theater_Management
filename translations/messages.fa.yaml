@@ -1,0 +1,49 @@
+theater_list: "لیست تئاترها" 
+create_new_theater: "ایجاد تئاتر جدید" 
+edit_theater: "ویرایش تئاتر" 
+delete_theater: "حذف تئاتر" 
+show_more: "نمایش بیشتر" 
+add_comment: "اضافه کردن دیدگاه" 
+save_changes: "ذخیره تغییرات" 
+login: "ورود" 
+register: "ثبت نام" 
+logout: "خروج" 
+edit_profile: "ویرایش پروفایل" 
+theaters: "تئاترها" 
+number_of_tickets: "تعداد بلیت‌ها" 
+tickets_bought_successfully: "بلیت‌ها با موفقیت خریداری شدند." 
+invalid_csrf_token: "توکن CSRF نامعتبر است."
+email: "ایمیل"
+title: "سالن‌ها"
+logged_in_as: "شما وارد شده‌اید به عنوان "
+delete_confirm: "آیا مطمئن هستید که می‌خواهید این سالن را حذف کنید؟"
+current_password: 'رمز عبور فعلی'
+new_password: 'رمز عبور جدید'
+theater_name: 'اسم تئاتر'
+submit: ' ثبت '
+comment: 'دیدگاه'
+leave_review_for: "دیدگاه بگذارید" 
+form.rating: 'امتیاز'
+form.comment: 'دیدگاه'
+form.name: 'اسم تئاتر'
+form.description: 'توضیحات'
+form.location: "مکان برگذاری"
+form.capacity: 'ظرفیت'
+form.date: 'تاریخ'
+form.new_email:  "ایمیل"
+form.current_password: 'رمز عبور فعلی'
+form.new_password: 'رمز عبور جدید'
+please_sign_in: 'لطفا وارد شوید'
+password: 'رمز عبور'
+form.ticket_price: 'قیمت '
+this_theater_is_full: "این تئاتر پر است"
+show_ticket: 'نمایش بلیط'
+theater_details: 'جزئیات تئاتر' 
+location: 'مکان' 
+capacity: 'ظرفیت' 
+description: 'توضیحات' 
+buy_ticket: 'خرید بلیط'
+back_to_home: 'بازگشت به خانه'
+comments_for: 'دیدگاه برای'
+show_comment: 'نمایش کامنت'
+no_comments: 'برای این تئاتر کامنتی وجود ندارد'

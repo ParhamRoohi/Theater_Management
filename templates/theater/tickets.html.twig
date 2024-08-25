@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+         .btn-back{
+            background-color: #5bc0de;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 4px;
+        }
+
+         .btn-back:hover {
+            background-color: #31b0d5;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{ 'Ticket List'|trans }}</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ 'Customer'|trans }}</th>
+                    <th>{{ 'Purchase Date'|trans }}</th>
+                    <th>{{ 'Status'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td>{{ ticket.customer.email }}</td>
+                        <td>{{ ticket.purchaseDate ? ticket.purchaseDate|date('Y-m-d H:i:s') : 'N/A' }}</td>
+                        <td>{{ ticket.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+         <button type="button" class="btn btn-back" onclick="window.location.href='{{ path('theater_index') }}'">{{ 'back_to_home'|trans }}</button>
+
+    </div>
+{% endblock %}
